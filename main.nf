@@ -97,7 +97,7 @@ workflow NFCORE_FASTQUORUM {
             log.error("config groupreadsbyumi_strategy must be 'Paired' for duplex-sequencing data")
             exit(1)
         }
-        if (params.call_min_reads == '') {
+        if (params.call_min_reads == null) {
             params.replace("call_min_reads", '1 1 0')
         }
         if (!params.filter_min_reads) {
@@ -112,10 +112,10 @@ workflow NFCORE_FASTQUORUM {
             log.error("config groupreadsbyumi_strategy cannot be 'Paired' for non-duplex-sequencing data")
             exit(1)
         }
-        if (params.call_min_reads == '') {
+        if (params.call_min_reads == null) {
             params.replace("call_min_reads", '1')
         }
-        if (params.filter_min_reads == '') {
+        if (params.filter_min_reads == null) {
             params.replace("filter_min_reads", '3')
         }
     }
